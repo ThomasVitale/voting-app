@@ -2,6 +2,10 @@
 
 A simple distributed application running across multiple containers on Kubernetes and integrated via Dapr.
 
+## 🚀&nbsp; Getting Started
+
+Follow the instructions in `k8s/README.md`.
+
 ## 🖊️&nbsp; License
 
 This project is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) for more information.
