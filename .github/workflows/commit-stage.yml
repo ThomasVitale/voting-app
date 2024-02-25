@@ -1,0 +1,25 @@
+name: Commit Stage
+
+on:
+  push:
+
+jobs:
+  publish-dockerfile:
+    name: Publish (Dockerfile)
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    uses: ./.github/workflows/multi-arch-publish.yml
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [
+          {context: go/vote, image: vote-go},
+          {context: dotnet/worker, image: worker-dotnet},
+        ]
+    with:
+      context: ${{ matrix.project.context }}
+      image: ${{ matrix.project.image }}   
+    secrets:  
+      push-token: ${{ secrets.IMAGE_PUSH_TOKEN }}

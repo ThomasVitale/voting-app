@@ -1,0 +1,15 @@
+platform:
+  profile: run
+  infrastructure_provider: local
+  ingress:
+    domain: 127.0.0.1.sslip.io
+  additional_packages:
+    - dapr
+
+contour:
+  contour:
+    replicas: 1
+
+flux:
+  optional_components:
+    kustomize_controller: false

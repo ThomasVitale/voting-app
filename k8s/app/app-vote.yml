@@ -1,0 +1,20 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: vote
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+    spec:
+      containers:
+      - image: ghcr.io/thomasvitale/voting/vote
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DAPR_HTTP_ENDPOINT
+          value: http://vote-dapr.default.svc.cluster.local:3500
+        - name: DAPR_GRPC_ENDPOINT
+          value: http://vote-dapr.default.svc.cluster.local:50001  
