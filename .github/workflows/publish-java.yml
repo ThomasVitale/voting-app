@@ -51,7 +51,7 @@ jobs:
         run: |
           cd ${{ inputs.context }}
           chmod +x gradlew
-          ./gradlew clean build
+          ./gradlew clean bootJar
       
       - name: Generate Docker meta information
         id: meta
