@@ -15,8 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         project: [
-          {context: go/result, image: voting/result-go},
-          {context: go/vote, image: voting/vote-go},
+          {context: go/result, image: result-go},
+          {context: go/vote, image: vote-go},
           {context: dotnet/worker, image: worker-dotnet},
         ]
     with:
