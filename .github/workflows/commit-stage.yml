@@ -10,7 +10,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
-    uses: ./.github/workflows/multi-arch-publish.yml
+    uses: ./.github/workflows/publish-dockerfile.yml
     strategy:
       fail-fast: false
       matrix:
